@@ -1,18 +1,23 @@
 import torch
 import torch.nn as nn
 
+
 class Net(nn.Module):
-    def __init__(self, input_size, hidden_size, num_classes):
+    def __init__(self, input_size, hidden_sizes, output_size):
         super(Net, self).__init__()
-        self.fc1 = nn.Linear(input_size, hidden_size) 
-        self.relu = nn.ReLU()
-        self.fc2 = nn.Linear(hidden_size, num_classes)  
-    
+        self.layers = nn.ModuleList()
+        for i in range(len(hidden_sizes)):
+            if i == 0:
+                self.layers.append(nn.Linear(input_size, hidden_sizes[i]))
+            else:
+                self.layers.append(nn.Linear(hidden_sizes[i-1], hidden_sizes[i]))
+        self.layers.append(nn.Linear(hidden_sizes[-1], output_size))
+
     def forward(self, x):
-        out = self.fc1(x)
-        out = self.relu(out)
-        out = self.fc2(out)
-        return out
+        for layer in self.layers[:-1]:
+            x = torch.relu(layer(x))
+        return self.layers[-1](x)
+
 
 class ConvNet(nn.Module):
     def __init__(self, num_classes=10):
