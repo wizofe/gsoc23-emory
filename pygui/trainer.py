@@ -3,6 +3,16 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 
+
+def save_model(model, file_path):
+    torch.save(model.state_dict(), file_path)
+
+def load_model(file_path):
+    model = TheModelClass(*args, **kwargs)  # you need to know the exact class and parameters
+    model.load_state_dict(torch.load(file_path))
+    model.eval()  # make sure to call eval() to set dropout and batch normalization layers to evaluation mode
+    return model
+
 def load_data():
     transform = transforms.ToTensor()
 
