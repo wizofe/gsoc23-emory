@@ -13,6 +13,9 @@ def load_model(file_path):
     model.eval()  # make sure to call eval() to set dropout and batch normalization layers to evaluation mode
     return model
 
+def load_dataset(url):
+    return pd.read_csv(url)
+
 def load_data():
     transform = transforms.ToTensor()
 
