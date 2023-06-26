@@ -30,7 +30,7 @@ I explored various model architectures including LSTM and GRU, which are more su
 
 The results have been promising, but there's still more to explore and refine.
 
-Moving Forward
+## Moving Forward
 
 As I am moving into the second month of Google Summer of Code 2023, my plans are to continue refining the application, working on improvements, handling edge cases, and of course, squashing any bugs that pop up. I will also be spending more time understanding and refining the performance of time series models.
 
