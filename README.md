@@ -30,6 +30,44 @@ I explored various model architectures including LSTM and GRU, which are more su
 
 The results have been promising, but there's still more to explore and refine.
 
+# Progress log report
+
+## First Week of June 2023
+
+- Initial setup of the project
+- Created a GUI with PyQt5
+- Integrated basic model training and evaluation functionality with PyTorch
+
+## Second Week of June 2023
+
+- Added a feature to choose between different neural network models (Net, ConvNet)
+- Implemented data loading functionality to load time-series datasets from an online repository
+
+## Third Week of June 2023
+
+- Introduced new models and experimented with 1D time-series datasets
+- Enhanced the training functionality with real-time progress updates on the GUI
+
+## Fourth Week of June 2023
+
+- Improved application's robustness by adding test cases
+- Started working on parallel training functionality for better performance
+
+## Commencing First Week of July 2023
+
+- Testing the parallel training functionality using PyTorch's DataParallel
+- Introduced model persistence to save and load trained models
+- Included functionality to visualize model performance and results
+
+## Key Features
+
+- User-Friendly GUI: Interactive interface to manage the entire workflow.
+- Multiple Model Support: Choose from different neural network models like Net and ConvNet.
+- Real-time Updates (testing): See the training progress in real-time.
+- Model Persistence (draft - to test): Save and load models for future use.
+- Data Visualization (testing): Plot and analyze model performance.
+- Parallel Training (draft): Efficiently utilize all available GPU resources.
+
 ## Moving Forward
 
 As I am moving into the second month of Google Summer of Code 2023, my plans are to continue refining the application, working on improvements, handling edge cases, and of course, squashing any bugs that pop up. I will also be spending more time understanding and refining the performance of time series models.
