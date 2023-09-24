@@ -2,7 +2,7 @@
 
 Hello there! My name is Ioannis Valasakis, and I am thrilled to be a participant in Google Summer of Code 2023 for EMORY. This repository houses my work-in-progress, a GUI-based PyTorch model trainer for different dataset, in order to provide a workflow which is transparent and easy to train models. In this README, I'm going to walk you through my journey over the past weeks, the progress I've made, the challenges I've faced, and the lessons I've learned.
 
-Here's the [User Documentation](user-doc.md)
+Here's the [User Documentation](user-doc.md) and the final [report](final-report.pdf) of the project!!
 
 
 ## Week 1 - Beginning of June 2023
