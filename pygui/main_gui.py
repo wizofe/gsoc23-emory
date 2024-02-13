@@ -10,9 +10,10 @@ import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
+from PyQt5.QtWidgets import QWidget, QApplication, QVBoxLayout, QHBoxLayout
+import sys
 
 
-# Define Simple CNN model
 class SimpleCNN(nn.Module):
     def __init__(self):
         super(SimpleCNN, self).__init__()
@@ -25,7 +26,7 @@ class SimpleCNN(nn.Module):
         x = self.fc1(x)
         return nn.functional.log_softmax(x, dim=1)
 
-# Define Deeper CNN model
+
 class DeeperCNN(nn.Module):
     def __init__(self):
         super(DeeperCNN, self).__init__()
@@ -40,7 +41,7 @@ class DeeperCNN(nn.Module):
         x = self.fc1(x)
         return nn.functional.log_softmax(x, dim=1)
 
-# Define MLP model
+
 class SimpleMLP(nn.Module):
     def __init__(self):
         super(SimpleMLP, self).__init__()
@@ -53,7 +54,7 @@ class SimpleMLP(nn.Module):
         x = self.fc2(x)
         return nn.functional.log_softmax(x, dim=1)
 
-# Training Thread
+
 class TrainingThread(QThread):
     update_plot = pyqtSignal(float)
 
@@ -64,17 +65,15 @@ class TrainingThread(QThread):
         self.momentum = momentum
         self.is_running = True
 
+  
     def run(self):
-        # DataLoader
         transform = transforms.Compose([transforms.ToTensor()])
         train_data = torchvision.datasets.MNIST('./data', train=True, transform=transform, download=True)
         train_loader = DataLoader(train_data, batch_size=32, shuffle=True)
 
-        # Loss and Optimizer
         criterion = nn.CrossEntropyLoss()
         optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr, momentum=self.momentum)
 
-        # Training Loop
         for epoch in range(1):
             for i, (images, labels) in enumerate(train_loader):
                 if not self.is_running:
@@ -204,11 +203,6 @@ class AppDemo(QWidget):
         if self.thread:
             self.thread.stop()
 
-from PyQt5.QtWidgets import QWidget, QApplication, QVBoxLayout, QHBoxLayout
-import sys
-
-# ... (Your imports and model definitions remain the same)
-
 class MultiAppDemo(QWidget):
     def __init__(self):
         super().__init__()
@@ -236,4 +230,3 @@ if __name__ == '__main__':
 #app = QApplication(sys.argv)
 #demo = AppDemo()
 #sys.exit(app.exec_())
-
