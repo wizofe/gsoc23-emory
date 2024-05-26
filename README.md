@@ -13,7 +13,7 @@ After setting up the environment, I set my sights on creating the basic structur
 
 I also laid the groundwork for GUI design, including creating the main window and controls. At this point, the controls didn't do anything just yet, but it was a start!
 
-## Week 2 - Second week of June 2023
+## Week 2 - Second week of June 2023
 
 The second week saw significant progress. I fleshed out the PyTorch model, adding more functionality and testing out the training on the MNIST dataset. The training process was a bit slow at first, but after some adjustments to the learning rate and batch size, it started to perform better.
 
